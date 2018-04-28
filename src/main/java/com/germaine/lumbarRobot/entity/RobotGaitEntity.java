@@ -1,0 +1,175 @@
+package com.germaine.lumbarRobot.entity;
+
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
+import java.io.Serializable;
+
+@EntityScan
+public class RobotGaitEntity implements Serializable{
+
+    private String mobile; // 用户手机号码
+    private String socialSecurityNo; // 用户社保id
+    private String stepAmplitude; // 步幅
+    private String stepWidth; // 步宽
+    private String stepFrequency; // 步频
+    private String stepLength; //步长
+    private String leftHipAngle; //左髋关节角度
+    private String leftKneeAngle; //左膝关节角度
+    private String leftToePressure; //左脚尖压力
+    private String leftHeelPressure; //左脚跟压力
+    private String rightHipAngle; //右髋关节角度
+    private String rightKneeAngle; //右膝关节角度
+    private String rightToePressure; //右脚尖压力
+    private String rightHeelPressure; //右脚跟压力
+
+    public RobotGaitEntity(String mobile, String socialSecurityNo, String stepAmplitude, String stepWidth, String stepFrequency, String stepLength, String leftHipAngle, String leftKneeAngle, String leftToePressure, String leftHeelPressure, String rightHipAngle, String rightKneeAngle, String rightToePressure, String rightHeelPressure) {
+        this.mobile = mobile;
+        this.socialSecurityNo = socialSecurityNo;
+        this.stepAmplitude = stepAmplitude;
+        this.stepWidth = stepWidth;
+        this.stepFrequency = stepFrequency;
+        this.stepLength = stepLength;
+        this.leftHipAngle = leftHipAngle;
+        this.leftKneeAngle = leftKneeAngle;
+        this.leftToePressure = leftToePressure;
+        this.leftHeelPressure = leftHeelPressure;
+        this.rightHipAngle = rightHipAngle;
+        this.rightKneeAngle = rightKneeAngle;
+        this.rightToePressure = rightToePressure;
+        this.rightHeelPressure = rightHeelPressure;
+    }
+
+    public RobotGaitEntity() {}
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+    public String getSocialSecurityNo() {
+        return socialSecurityNo;
+    }
+
+    public void setSocialSecurityNo(String socialSecurityNo) {
+        this.socialSecurityNo = socialSecurityNo;
+    }
+
+    public String getStepAmplitude() {
+        return stepAmplitude;
+    }
+
+    public void setStepAmplitude(String stepAmplitude) {
+        this.stepAmplitude = stepAmplitude;
+    }
+
+    public String getStepWidth() {
+        return stepWidth;
+    }
+
+    public void setStepWidth(String stepWidth) {
+        this.stepWidth = stepWidth;
+    }
+
+    public String getStepFrequency() {
+        return stepFrequency;
+    }
+
+    public void setStepFrequency(String stepFrequency) {
+        this.stepFrequency = stepFrequency;
+    }
+
+    public String getStepLength() {
+        return stepLength;
+    }
+
+    public void setStepLength(String stepLength) {
+        this.stepLength = stepLength;
+    }
+
+    public String getLeftHipAngle() {
+        return leftHipAngle;
+    }
+
+    public void setLeftHipAngle(String leftHipAngle) {
+        this.leftHipAngle = leftHipAngle;
+    }
+
+    public String getLeftKneeAngle() {
+        return leftKneeAngle;
+    }
+
+    public void setLeftKneeAngle(String leftKneeAngle) {
+        this.leftKneeAngle = leftKneeAngle;
+    }
+
+    public String getLeftToePressure() {
+        return leftToePressure;
+    }
+
+    public void setLeftToePressure(String leftToePressure) {
+        this.leftToePressure = leftToePressure;
+    }
+
+    public String getLeftHeelPressure() {
+        return leftHeelPressure;
+    }
+
+    public void setLeftHeelPressure(String leftHeelPressure) {
+        this.leftHeelPressure = leftHeelPressure;
+    }
+
+    public String getRightHipAngle() {
+        return rightHipAngle;
+    }
+
+    public void setRightHipAngle(String rightHipAngle) {
+        this.rightHipAngle = rightHipAngle;
+    }
+
+    public String getRightKneeAngle() {
+        return rightKneeAngle;
+    }
+
+    public void setRightKneeAngle(String rightKneeAngle) {
+        this.rightKneeAngle = rightKneeAngle;
+    }
+
+    public String getRightToePressure() {
+        return rightToePressure;
+    }
+
+    public void setRightToePressure(String rightToePressure) {
+        this.rightToePressure = rightToePressure;
+    }
+
+    public String getRightHeelPressure() {
+        return rightHeelPressure;
+    }
+
+    public void setRightHeelPressure(String rightHeelPressure) {
+        this.rightHeelPressure = rightHeelPressure;
+    }
+
+    @Override
+    public String toString() {
+        return "RobotGaitEntity{" +
+                "mobile='" + mobile + '\'' +
+                ", socialSecurityNo='" + socialSecurityNo + '\'' +
+                ", stepAmplitude='" + stepAmplitude + '\'' +
+                ", stepWidth='" + stepWidth + '\'' +
+                ", stepFrequency='" + stepFrequency + '\'' +
+                ", stepLength='" + stepLength + '\'' +
+                ", leftHipAngle='" + leftHipAngle + '\'' +
+                ", leftKneeAngle='" + leftKneeAngle + '\'' +
+                ", leftToePressure='" + leftToePressure + '\'' +
+                ", leftHeelPressure='" + leftHeelPressure + '\'' +
+                ", rightHipAngle='" + rightHipAngle + '\'' +
+                ", rightKneeAngle='" + rightKneeAngle + '\'' +
+                ", rightToePressure='" + rightToePressure + '\'' +
+                ", rightHeelPressure='" + rightHeelPressure + '\'' +
+                '}';
+    }
+}

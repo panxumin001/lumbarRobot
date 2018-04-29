@@ -76,6 +76,8 @@
                 <span class="div_span">连接控制</span><br/>
                 <input class="div_button" type="button" id="start" value="开 始" ng-click="start()"/>
                 <input class="div_button" type="button" id="stop" value="停 止" ng-click="stop()"/>
+                <input class="div_button" type="button" id="slow" value="慢 速" ng-click="slow()"/>
+                <input class="div_button" type="button" id="fast" value="高 速" ng-click="fast()"/>
                 <!--<input class="div_button" type="button" id="reset" value="急停/复位" ng-click="reset()"/>-->
                 <!--<input class="div_button" type="button" id="connect" value="连接机器人" ng-click="connect()"/>-->
             </div>
@@ -85,7 +87,7 @@
                 <span ng-model="robotData.leftHipAngle">{{robotData.leftHipAngle}}</span><br/>
                 <span>右髋关节：</span>
                 <span ng-model="robotData.rightHipAngle">{{robotData.rightHipAngle}}</span><br/>
-                <span>电池电量：</span><br/>
+                <span>电池电量：84%</span><br/>
                 <span>当前时间为: {{now|date:'yyyy-MM-dd hh:mm:ss'}}</span>
             </div>
         </div>

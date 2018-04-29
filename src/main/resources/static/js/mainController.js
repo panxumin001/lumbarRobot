@@ -65,6 +65,8 @@ var app = angular.module('app', ['ngRoute']);
 //            document.getElementById("confirm").disabled=true;
             document.getElementById("start").disabled=true;
             document.getElementById("stop").disabled=true;
+            document.getElementById("slow").disabled=true;
+            document.getElementById("fast").disabled=true;
 //            document.getElementById("reset").disabled=true;
 //            document.getElementById("connect").disabled=true;
             $scope.robotData.leftHipAngle = 0;
@@ -134,6 +136,8 @@ var app = angular.module('app', ['ngRoute']);
 //                        document.getElementById("confirm").disabled=false;
                         document.getElementById("start").disabled=false;
                         document.getElementById("stop").disabled=true;
+                        document.getElementById("slow").disabled=false;
+                        document.getElementById("fast").disabled=false;
 //                        document.getElementById("reset").disabled=false;
 //                        document.getElementById("connect").disabled=false;
                     } else {
@@ -149,6 +153,8 @@ var app = angular.module('app', ['ngRoute']);
 //                        document.getElementById("confirm").disabled=true;
                         document.getElementById("start").disabled=true;
                         document.getElementById("stop").disabled=true;
+                        document.getElementById("slow").disabled=true;
+                        document.getElementById("fast").disabled=true;
 //                        document.getElementById("reset").disabled=true;
 //                        document.getElementById("connect").disabled=true;
                     }
@@ -180,6 +186,8 @@ var app = angular.module('app', ['ngRoute']);
 //                        document.getElementById("confirm").disabled=true;
                         document.getElementById("start").disabled=true;
                         document.getElementById("stop").disabled=true;
+                        document.getElementById("slow").disabled=true;
+                        document.getElementById("fast").disabled=true;
 //                        document.getElementById("reset").disabled=true;
 //                        document.getElementById("connect").disabled=true;
                     } else {
@@ -194,6 +202,8 @@ var app = angular.module('app', ['ngRoute']);
 //                        document.getElementById("confirm").disabled=false;
                         document.getElementById("start").disabled=false;
                         document.getElementById("stop").disabled=false;
+                        document.getElementById("slow").disabled=false;
+                        document.getElementById("fast").disabled=false;
 //                        document.getElementById("reset").disabled=false;
 //                        document.getElementById("connect").disabled=false;
                     }
@@ -208,14 +218,59 @@ var app = angular.module('app', ['ngRoute']);
                     method : 'GET',
                 }).then(function(result) {
                   alert(JSON.stringify(result.data));
+                  alert("请机器运行停止后再进行控制操作！");
                   if(result.data && result.data.status == "ok") {
                     // 开始按钮置灰
                     timerId = window.setInterval(function(){$scope.showInfo()},1000);
                     document.getElementById("start").disabled=true;
                     document.getElementById("stop").disabled=false;
+                    document.getElementById("slow").disabled=false;
+                    document.getElementById("fast").disabled=false;
                   }
               }).catch(function(result) {
                   document.getElementById("start").disabled=false;
+                  alert(JSON.stringify(result.data));
+              });
+        }
+        // 慢速
+        $scope.slow = function() {
+            $http({
+                    url : '/api/gateway/control?controlOrder=slow' ,
+                    method : 'GET',
+                }).then(function(result) {
+                  alert(JSON.stringify(result.data));
+                  alert("请机器运行停止后再进行控制操作！");
+                  if(result.data && result.data.status == "ok") {
+                    // 开始按钮置灰
+                    timerId = window.setInterval(function(){$scope.showInfo()},1000);
+                    document.getElementById("slow").disabled=true;
+                    document.getElementById("start").disabled=false;
+                    document.getElementById("stop").disabled=false;
+                    document.getElementById("fast").disabled=false;
+                  }
+              }).catch(function(result) {
+                  document.getElementById("slow").disabled=false;
+                  alert(JSON.stringify(result.data));
+              });
+        }
+        // 高速
+        $scope.fast = function() {
+            $http({
+                    url : '/api/gateway/control?controlOrder=fast' ,
+                    method : 'GET',
+                }).then(function(result) {
+                  alert(JSON.stringify(result.data));
+                  alert("请机器运行停止后再进行控制操作！");
+                  if(result.data && result.data.status == "ok") {
+                    // 开始按钮置灰
+                    timerId = window.setInterval(function(){$scope.showInfo()},1000);
+                    document.getElementById("fast").disabled=true;
+                    document.getElementById("slow").disabled=false;
+                    document.getElementById("start").disabled=false;
+                    document.getElementById("stop").disabled=false;
+                  }
+              }).catch(function(result) {
+                  document.getElementById("fast").disabled=false;
                   alert(JSON.stringify(result.data));
               });
         }
@@ -231,6 +286,8 @@ var app = angular.module('app', ['ngRoute']);
                     window.clearInterval(timerId);
                     document.getElementById("stop").disabled=true;
                     document.getElementById("start").disabled=false;
+                    document.getElementById("slow").disabled=false;
+                    document.getElementById("fast").disabled=false;
                     $scope.robotData.leftHipAngle = 0;
                     $scope.robotData.rightHipAngle = 0;
 //                    $scope.robotData.leftKneeAngle = 0;

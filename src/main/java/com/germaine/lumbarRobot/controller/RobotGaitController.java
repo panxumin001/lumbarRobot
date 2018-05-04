@@ -108,7 +108,7 @@ public class RobotGaitController {
     public ResponseEntity robotControl(@RequestParam String controlOrder) {
         JsonResult r = new JsonResult();
         System.out.println("---->controlOrder send begin :" + controlOrder);
-        String messege = TcpUtils.sendMessege("192.168.1.114", 80, controlOrder);
+        String messege = TcpUtils.sendMessege("192.168.1.113", 80, controlOrder);// 腰椎机器人固定ip：192.168.1.113
         System.out.println("---->controlOrder send end :" + controlOrder);
         r.setStatus("ok");
         r.setResult(messege);
